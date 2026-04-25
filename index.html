@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Резюме | Аліна Шпинта</title>
 </head>
 <body>
 
     <header>
-        <h1>Alina Shpynta</h1>
-        <p><strong>3rd Year Student · Cybersecurity</strong></p>
+        <div class="header-top">
+            <div>
+                <h1>Alina Shpynta</h1>
+                <p><strong>3rd Year Student · Cybersecurity</strong></p>
+            </div>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Перемкнути тему">
+                <span id="themeToggleText">Switch Theme</span>
+            </button>
+        </div>
         <address>
             <p>Lviv, Ukraine</p>
             <p>Email: <a href="mailto:alina.shpynta.kb.2023@lpnu.ua">alina.shpynta.kb.2023@lpnu.ua</a></p>
@@ -68,11 +76,48 @@
                 Actively participate in self-learning to improve technical skills.
             </p>
         </section>
+
+        <section>
+            <h2>Previous Employer Reviews</h2>
+            <div id="reviewsStatus" class="status-message">Loading comments from server...</div>
+            <div id="reviewsList" class="reviews-list"></div>
+        </section>
     </main>
 
     <footer>
         <p>© 2026 Alina Shpynta</p>
+        <div id="storageInfo" class="storage-info"></div>
     </footer>
+
+    <div id="contactModal" class="modal hidden" aria-hidden="true">
+        <div class="modal-backdrop" data-close-modal="true"></div>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+            <button id="closeModalButton" class="modal-close" type="button" aria-label="Закрити форму">×</button>
+            <h2 id="contactModalTitle">Feedback Form</h2>
+            <p class="modal-text">Leave your contact details and message. The form will be sent through Formspree after the endpoint is configured.</p>
+            <form id="contactForm" action="https://formspree.io/f/xkoppedp" method="POST">
+                <label>
+                    Name
+                    <input type="text" name="name" required>
+                </label>
+                <label>
+                    Email
+                    <input type="email" name="email" required>
+                </label>
+                <label>
+                    Phone
+                    <input type="tel" name="phone" required>
+                </label>
+                <label>
+                    Message
+                    <textarea name="message" rows="5" required></textarea>
+                </label>
+                <button class="submit-button" type="submit">Відправити</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
